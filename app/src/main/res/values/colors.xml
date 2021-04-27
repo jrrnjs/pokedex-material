@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="yellow_200">#ffeb46</color>
+    <color name="yellow_400">#ffc000</color>
+    <color name="yellow_500">#ffde03</color>
+
+    <color name="blue_200">#91a4fc</color>
+    <color name="blue_400">#42a5f5</color>
+    <color name="blue_700">#0336ff</color>
+    <color name="blue_800">#0035c9</color>
+
+    <color name="red_400">#ef5350</color>
+
+    <color name="blue_grey_700">#455a64</color>
+    <color name="blue_grey_800">#37474f</color>
+    <color name="blue_grey_900">#263238</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="dark_primary">#1c1d24</color>
+    <color name="dark_background">#24191c</color>
+
+    <color name="white_alpha_90">#E6FFFFFF</color>
+
+    <color name="normal">#A8A77A</color>
+    <color name="fire">#EE8130</color>
+    <color name="water">#6390F0</color>
+    <color name="electric">#F7D02C</color>
+    <color name="grass">#7AC74C</color>
+    <color name="ice">#96D9D6</color>
+    <color name="fighting">#C22E28</color>
+    <color name="poison">#A33EA1</color>
+    <color name="ground">#E2BF65</color>
+    <color name="flying">#A98FF3</color>
+    <color name="psychic">#F95587</color>
+    <color name="bug">#A6B91A</color>
+    <color name="rock">#B6A136</color>
+    <color name="ghost">#735797</color>
+    <color name="dragon">#6F35FC</color>
+    <color name="dark">#705746</color>
+    <color name="steel">#B7B7CE</color>
+    <color name="fairy">#D685AD</color>
+</resources>

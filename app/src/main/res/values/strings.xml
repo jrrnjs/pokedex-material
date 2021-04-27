@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Pokedex</string>
+    <string name="pokemon">Pokemon</string>
+
+    <string name="font_rubik">rubik</string>
+    <string name="font_rubik_medium">rubik_medium</string>
+    <string name="font_rubik_bold">rubik_bold</string>
+</resources>

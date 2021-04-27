@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.klobalvar.pokedex.ui.pokemon_profile.PokemonProfileViewModel" />
+
+        <variable
+            name="typeAdapter"
+            type="com.klobalvar.pokedex.ui.pokemon_profile.ProfileTypeAdapter" />
+
+        <variable
+            name="pokemon"
+            type="com.klobalvar.pokedex.model.Pokemon" />
+
+        <variable
+            name="typePokemonListAdapter"
+            type="com.klobalvar.pokedex.ui.pokemon_profile.TypePokemonListAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/dark_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/backgroundView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardCornerRadius="0dp"
+                    app:layout_constraintDimensionRatio="3:2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/pokemonImage"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:glide_background_view="@{backgroundView}"
+                            app:glide_url="@{pokemon.imageUrl}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="@{pokemon.indexString}"
+                            android:textColor="@color/white_alpha_90"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="No. 153" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/typeRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="32dp"
+                    android:orientation="horizontal"
+                    app:adapter="@{typeAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/backgroundView"
+                    app:submitList="@{vm.types}"
+                    tools:listitem="@layout/item_profile_type" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/pokemonName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="@{pokemon.name}"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="32sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/typeRecyclerView"
+                    tools:text="gengar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/heightLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="height"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@id/divider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pokemonName" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="1dp"
+                    android:layout_height="0dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/white_alpha_90"
+                    app:layout_constraintBottom_toBottomOf="@id/height"
+                    app:layout_constraintEnd_toStartOf="@id/weightLabel"
+                    app:layout_constraintStart_toEndOf="@id/heightLabel"
+                    app:layout_constraintTop_toTopOf="@id/heightLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weightLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="weight"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/divider"
+                    app:layout_constraintTop_toTopOf="@id/heightLabel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="@{String.valueOf(vm.pokemonInfo.height)}"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@id/heightLabel"
+                    app:layout_constraintStart_toStartOf="@id/heightLabel"
+                    app:layout_constraintTop_toBottomOf="@id/heightLabel"
+                    tools:text="1.5" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="@{String.valueOf(vm.pokemonInfo.weight)}"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@id/weightLabel"
+                    app:layout_constraintStart_toStartOf="@id/weightLabel"
+                    app:layout_constraintTop_toBottomOf="@id/weightLabel"
+                    tools:text="58" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/statsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Stats"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/height" />
+
+                <LinearLayout
+                    android:id="@+id/hpContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/attackContainer"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/statsLabel">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="hp"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/rubik_bold"
+                        android:text="@{String.valueOf(vm.pokemonInfo.hp)}"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="18sp"
+                        tools:text="87" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/attackContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/defenseContainer"
+                    app:layout_constraintStart_toEndOf="@id/hpContainer"
+                    app:layout_constraintTop_toTopOf="@id/hpContainer">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="attack"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/rubik_bold"
+                        android:text="@{String.valueOf(vm.pokemonInfo.attack)}"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="18sp"
+                        tools:text="119" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/defenseContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/speedContainer"
+                    app:layout_constraintStart_toEndOf="@id/attackContainer"
+                    app:layout_constraintTop_toTopOf="@id/hpContainer">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="defense"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/rubik_bold"
+                        android:text="@{String.valueOf(vm.pokemonInfo.defense)}"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="18sp"
+                        tools:text="34" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/speedContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/defenseContainer"
+                    app:layout_constraintTop_toTopOf="@id/hpContainer">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="speed"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="15sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/rubik_bold"
+                        android:text="@{String.valueOf(vm.pokemonInfo.speed)}"
+                        android:textColor="@color/white_alpha_90"
+                        android:textSize="18sp"
+                        tools:text="59" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/specialStatsLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/rubik_bold"
+                    android:text="Special Stats"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hpContainer" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/specialAttackLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="attack"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/specialStatsLabel" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressAttack"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/specialAttackLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier"
+                    app:layout_constraintTop_toTopOf="@id/specialAttackLabel"
+                    app:progressView_animation="accelerateDecelerate"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/red_400"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="13sp"
+                    app:progressView_labelText="@{vm.pokemonInfo.specialAttackLabel}"
+                    app:progressView_max="@{vm.pokemonInfo.statMaxValue}"
+                    app:progressView_progress="@{vm.pokemonInfo.specialAttack}"
+                    app:progressView_radius="12dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/specialDefenseLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="defense"
+                    android:textColor="@color/white_alpha_90"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/specialAttackLabel" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressDefense"
+                    android:layout_width="0dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/specialDefenseLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/barrier"
+                    app:layout_constraintTop_toTopOf="@id/specialDefenseLabel"
+                    app:progressView_animation="accelerateDecelerate"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/blue_400"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="12sp"
+                    app:progressView_labelText="@{vm.pokemonInfo.specialDefenseLabel}"
+                    app:progressView_max="@{vm.pokemonInfo.statMaxValue}"
+                    app:progressView_progress="@{vm.pokemonInfo.specialDefense}"
+                    app:progressView_radius="12dp" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="end"
+                    app:constraint_referenced_ids="specialAttackLabel,specialDefenseLabel" />
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:visible="@{vm.isLoading}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/typePokemonListRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="vertical"
+                    app:adapter="@{typePokemonListAdapter}"
+                    app:item_space="@{8}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/progressDefense"
+                    app:submitList="@{vm.typeToPokemonList}"
+                    tools:listitem="@layout/item_type_pokemon_list" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/popupPokemon"
+            layout="@layout/layout_popup_pokemon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

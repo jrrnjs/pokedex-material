@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pokemonType"
+            type="String" />
+
+        <variable
+            name="adapter"
+            type="com.klobalvar.pokedex.ui.pokemon_profile.TypePokemonAdapter" />
+
+        <variable
+            name="pokemonList"
+            type="java.util.List" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/rubik_bold"
+            android:text="@{pokemonType}"
+            android:textColor="@color/white_alpha_90"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Fire" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pokemonRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            app:adapter="@{adapter}"
+            app:item_space="@{4}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/type"
+            app:submitList="@{pokemonList}"
+            tools:listitem="@layout/item_type_pokemon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
