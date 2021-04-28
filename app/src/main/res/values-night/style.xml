@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.Pokedex.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/black_800</item>
+        <item name="titleTextColor">@color/white_50</item>
+        <item name="navigationIconTint">@color/white_50</item>
+    </style>
+
+    <style name="Widget.Pokedex.Backdrop" parent="Theme.Pokedex">
+        <item name="android:background">@color/black_800</item>
+    </style>
+
+    <style name="Widget.Pokedex.OnBackdrop" parent="Theme.Pokedex">
+        <item name="android:textColor">@color/white_50</item>
+    </style>
+</resources>

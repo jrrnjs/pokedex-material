@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="yellow_200">#ffeb46</color>
-    <color name="yellow_400">#ffc000</color>
-    <color name="yellow_500">#ffde03</color>
+    <color name="blue_a100">#82b1ff</color> <!--Color primary (dark)-->
+    <color name="blue_a700">#2962ff</color> <!--Color primary (light)-->
+    <color name="blue_a100_dark">#4d82cb</color> <!--Color primary variant (dark)-->
+    <color name="blue_a700_dark">#0039cb</color> <!--Color primary variant (light)-->
 
-    <color name="blue_200">#91a4fc</color>
-    <color name="blue_400">#42a5f5</color>
-    <color name="blue_700">#0336ff</color>
-    <color name="blue_800">#0035c9</color>
+    <color name="yellow_200">#fff59d</color> <!--Color secondary-->
+    <color name="yellow_500">#ffeb3b</color> <!--Color secondary variant-->
 
-    <color name="red_400">#ef5350</color>
+    <color name="red_200">#ef9a9a</color> <!--Color error (dark)-->
+    <color name="red_400">#ef5350</color> <!--Color error (light)-->
 
-    <color name="blue_grey_700">#455a64</color>
-    <color name="blue_grey_800">#37474f</color>
-    <color name="blue_grey_900">#263238</color>
+    <!--Color surface (light), color on error (light), -->
+    <!--color on surface (dark), color on surface (dark)-->
+    <color name="white_50">#ffffff</color>
+
+    <color name="black_800">#121212</color> <!--Color surface (dark)-->
+    <!--Color on secondary (light), color on background (light),-->
+    <!--color on surface (light)-->
+    <color name="black_900">#000000</color>
+
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="dark_primary">#1c1d24</color>
-    <color name="dark_background">#24191c</color>
-
-    <color name="white_alpha_90">#E6FFFFFF</color>
 
     <color name="normal">#A8A77A</color>
     <color name="fire">#EE8130</color>

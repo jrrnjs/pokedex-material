@@ -10,14 +10,13 @@
     </data>
 
     <androidx.appcompat.widget.AppCompatTextView
+        style="@style/Widget.Pokedex.OnBackdrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
-        android:fontFamily="@font/rubik_bold"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
         android:text="@{type}"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textAppearance="?attr/textAppearanceHeadline5"
         tools:text="Electric" />
 </layout>

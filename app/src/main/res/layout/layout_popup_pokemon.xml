@@ -23,13 +23,12 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:cardCornerRadius="16dp"
         app:cardElevation="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:cardBackgroundColor="@color/red_400"
+        app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
         tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -46,16 +45,14 @@
                 app:glide_url="@{pokemon.imageUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:background="@color/blue_400" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/rubik_bold"
                 android:text="@{pokemon.indexString}"
-                android:textColor="@color/white_alpha_90"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/white_50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="No.233" />
@@ -65,12 +62,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:fontFamily="@font/rubik_bold"
                 android:gravity="center"
-                android:includeFontPadding="false"
                 android:text="@{pokemon.name}"
-                android:textColor="@color/white_alpha_90"
-                android:textSize="20sp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white_50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/popupPokemonImage"

@@ -27,10 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/rubik_bold"
             android:text="@{pokemonType}"
-            android:textColor="@color/white_alpha_90"
-            android:textSize="20sp"
+            android:textAppearance="?attr/textAppearanceHeadline6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Fire" />

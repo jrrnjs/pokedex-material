@@ -1,18 +1,58 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Pokedex" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Pokedex" parent="Base.Theme.Pokedex" />
+    <style name="Base.Theme.Pokedex" parent="Base.Theme.MaterialThemeBuilder">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blue_700</item>
-        <item name="colorPrimaryVariant">@color/blue_800</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSurface">@color/dark_primary</item>
+        <item name="colorPrimary">@color/blue_a700</item>
+        <item name="colorPrimaryVariant">@color/blue_a700_dark</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/yellow_500</item>
-        <item name="colorSecondaryVariant">@color/yellow_400</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorSecondary">@color/yellow_200</item>
+        <item name="colorSecondaryVariant">@color/yellow_500</item>
+
+        <!--colorBackground appears behind scrollable content and is used for the default window-->
+        <!--background. colorSurface is mapped to the surface of components such as cards, sheets-->
+        <!--and menus. colorError is used to indicate an error state for components such as-->
+        <!--text fields.-->
+        <item name="android:colorBackground">@color/white_50</item>
+        <item name="colorSurface">@color/white_50</item>
+        <item name="colorError">@color/red_400</item>
+        <!--"On" colors define how text, icons and strokes are colored in relation to the surface-->
+        <!--on which they appear.-->
+        <item name="colorOnPrimary">@color/white_50</item>
+        <item name="colorOnSecondary">@color/black_900</item>
+        <item name="colorOnBackground">@color/black_900</item>
+        <item name="colorOnSurface">@color/black_900</item>
+        <item name="colorOnError">@color/white_50</item>
+
+        <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorPrimaryVariant</item>
+
+        <!--Material type attributes-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Pokedex.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Pokedex.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Pokedex.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Pokedex.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Pokedex.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Pokedex.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Pokedex.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Pokedex.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Pokedex.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Pokedex.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Pokedex.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Pokedex.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Pokedex.Overline</item>
+
+        <!--Material shape attributes-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Pokedex.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Pokedex.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.Pokedex.LargeComponent</item>
+    </style>
+
+    <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?attr/colorControlHighlight</item>
     </style>
 
     <style name="BackDropShapeAppearance" parent="ShapeAppearance.MaterialComponents.LargeComponent">

@@ -15,6 +15,7 @@
         android:id="@+id/transformationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:transformation_containerColor="?android:attr/colorBackground"
         app:transformation_duration="400"
         app:transformation_fitMode="width"
         app:transformation_pathMode="linear">
@@ -26,7 +27,8 @@
             android:layout_margin="3dp"
             android:background="?attr/selectableItemBackground"
             app:cardCornerRadius="12dp"
-            app:cardElevation="2dp">
+            app:cardElevation="2dp"
+            app:shapeAppearance="?attr/shapeAppearanceMediumComponent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -56,8 +58,8 @@
                     android:fontFamily="@font/rubik_bold"
                     android:gravity="center"
                     android:text="@{pokemon.name}"
-                    android:textColor="@color/white_alpha_90"
-                    android:textSize="14sp"
+                    android:textAppearance="?attr/textAppearanceSubtitle2"
+                    android:textColor="@color/white_50"
                     app:layout_constraintBottom_toBottomOf="@id/pokemonImage"
                     tools:text="pokemon name" />
 
