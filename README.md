@@ -13,17 +13,17 @@ Material Design, Theme를 활용하였으며 Light Mode, Dark Mode가 구현되�
 ## 스크린샷
 Light Mode
 <p>
-<img src="/screenshots/light_mode_main" width="25%"/>
-<img src="/screenshots/light_mode_backdrop" width="25%"/>
-<img src="/screenshots/light_mode_profile" width="25%"/>
-<img src="/screenshots/light_mode_popup" width="25%"/>
+<img src="/screenshots/light_mode_main.jpg" width="23%"/>
+<img src="/screenshots/light_mode_backdrop.jpg" width="23%"/>
+<img src="/screenshots/light_mode_profile.jpg" width="23%"/>
+<img src="/screenshots/light_mode_popup.jpg" width="23%"/>
 </p>
 Dark Mode
 <p>
-<img src="/screenshots/dark_mode_main" width="25%"/>
-<img src="/screenshots/dark_mode_backdrop" width="25%"/>
-<img src="/screenshots/dark_mode_profile" width="25%"/>
-<img src="/screenshots/dark_mode_popup" width="25%"/>
+<img src="/screenshots/dark_mode_main.jpg" width="23%"/>
+<img src="/screenshots/dark_mode_backdrop.jpg" width="23%"/>
+<img src="/screenshots/dark_mode_profile.jpg" width="23%"/>
+<img src="/screenshots/dark_mode_popup.jpg" width="23%"/>
 </p>
 
 ## 버전 & 라이브러리 
