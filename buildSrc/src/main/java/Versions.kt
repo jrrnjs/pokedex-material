@@ -35,7 +35,7 @@ object Versions {
 
     const val coreKtx = "1.3.2"
     const val activityKtx = "1.3.0-alpha05"
-    const val fragmentKtx = "1.3.2"
+    const val fragmentKtx = "1.3.3"
 
 
     // lifecycle, liveData, viewModel
@@ -48,7 +48,7 @@ object Versions {
     const val room = "2.2.6"
 
     // hilt
-    const val hilt = "2.33-beta"
+    const val hilt = "2.35.1"
 
     // json
     const val gson = "2.8.6"
