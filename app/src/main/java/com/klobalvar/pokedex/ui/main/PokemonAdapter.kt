@@ -10,7 +10,7 @@ import com.klobalvar.pokedex.core.extensions.binding
 import com.klobalvar.pokedex.databinding.ItemPokemonBinding
 import com.klobalvar.pokedex.model.Pokemon
 import com.klobalvar.pokedex.ui.pokemon_profile.PokemonProfileActivity
-import timber.log.Timber
+import com.skydoves.transformationlayout.TransformationCompat
 
 class PokemonAdapter : ListAdapter<Pokemon, PokemonAdapter.ViewHolder>(diffUtil) {
 
@@ -22,13 +22,10 @@ class PokemonAdapter : ListAdapter<Pokemon, PokemonAdapter.ViewHolder>(diffUtil)
                     p != RecyclerView.NO_POSITION
                 } ?: return@setOnClickListener
 
-                val bundle = binding.transformationLayout.withView(v, "transition")
-
                 val intent = Intent(v.context, PokemonProfileActivity::class.java)
-                    .putExtra("TransformationParams", binding.transformationLayout.getParcelableParams())
                     .putExtra("pokemon", getItem(position))
 
-                v.context.startActivity(intent, bundle)
+                TransformationCompat.startActivity(binding.transformationLayout, intent)
             }
         }
     }

@@ -30,6 +30,7 @@
         <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:background="?android:attr/colorBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,8 +56,8 @@
 
                         <androidx.appcompat.widget.AppCompatImageView
                             android:id="@+id/pokemonImage"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
+                            android:layout_width="220dp"
+                            android:layout_height="220dp"
                             app:glide_background_view="@{backgroundView}"
                             app:glide_url="@{pokemon.imageUrl}"
                             app:layout_constraintBottom_toBottomOf="parent"

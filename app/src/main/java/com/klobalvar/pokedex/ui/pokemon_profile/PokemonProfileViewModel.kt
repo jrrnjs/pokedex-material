@@ -8,10 +8,7 @@ import com.klobalvar.pokedex.repository.PokemonInfoRepository
 import com.klobalvar.pokedex.repository.PokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,7 +42,9 @@ class PokemonProfileViewModel @Inject constructor(
                         _errorMessage.postValue(message)
                     }
                 }
-                _pokemonInfo.postValue(result)
+                result?.let {
+                    _pokemonInfo.postValue(result)
+                }
             }
             _isLoading.value = false
         }
